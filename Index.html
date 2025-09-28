@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkZone - Find Your Perfect Work</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.jpg" alt="WorkZone Logo" class="logo-img">
+                    <span class="logo-text">WorkZone</span>
+                </div>
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary" onclick="showLogin()">Sign in</button>
+                    <button class="btn btn-primary" onclick="showRegister()">Post employer</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Find Your Perfect Work Opportunity</h1>
+                <p class="hero-description">Discover flexible work, connect with verified employers and  Start your journey today.</p>
+                <div class="hero-search">
+                    <input type="text" placeholder="Search for Works, cities..." class="search-input" id="searchInput">
+                    <button class="btn btn-primary search-btn" onclick="performSearch()">Search Works</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Jobs Available</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5K+</span>
+                        <span class="stat-label">Happy Workers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Employers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs-section" id="jobsContainer" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Available Jobs</h2>
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h3>Freelance Painter</h3>
+                    <p class="job-location">Mumbai, India</p>
+                    <p class="job-description">Looking for experienced painters for residential and commercial projects. Flexible hours, good pay.</p>
+                </div>
+                <div class="job-card">
+                    <h3>Delivery Driver</h3>
+                    <p class="job-location">Delhi, India</p>
+                    <p class="job-description">Part-time delivery gigs available. Use your own vehicle, flexible schedule, competitive rates.</p>
+                </div>
+                <div class="job-card">
+                    <h3>House Cleaner</h3>
+                    <p class="job-location">Bangalore, India</p>
+                    <p class="job-description">Clean homes and offices. No experience needed, training provided. Full-time and part-time options.</p>
+                </div>
+                <div class="job-card">
+                    <h3>Event Staff</h3>
+                    <p class="job-location">Pune, India</p>
+                    <p class="job-description">Help with event setup and management. Great for students, evening and weekend shifts.</p>
+                </div>
+                <div class="job-card">
+                    <h3>Gardener</h3>
+                    <p class="job-location">Chennai, India</p>
+                    <p class="job-description">Maintain gardens and landscapes. Seasonal work, outdoor environment, tools provided.</p>
+                </div>
+                <div class="job-card">
+                    <h3>Pet Sitter</h3>
+                    <p class="job-location">Hyderabad, India</p>
+                    <p class="job-description">Care for pets while owners are away. Flexible hours, love for animals required.</p>
+                </div>
+                <div class="job-card">
+                    <h3>Waiter/Waitress</h3>
+                    <p class="job-location">Kolkata, India</p>
+                    <p class="job-description">Restaurant serving positions. Tips included, fast-paced environment, customer service skills.</p>
+                </div>
+                <div class="job-card">
+                    <h3>Graphic Designer</h3>
+                    <p class="job-location">Remote</p>
+                    <p class="job-description">Create visual content for clients. Freelance opportunities, portfolio required.</p>
+                </div>
+            </div>
+            <p id="noResults" class="no-results" style="display: none;">No jobs found matching your search.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose WorkZone?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Easy Work Search</h3>
+                    <p>Find relevant opportunities with advanced filters for location, type, and schedule.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Verified Employers</h3>
+                    <p>Work with trusted people and get paid securely for every work.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Flexible Schedules</h3>
+                    <p>Choose from short-term gigs to full-time roles that fit your lifestyle.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Access works, apply, and manage your profile anytime, anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Users Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"WorkZone helped me find flexible painting work that fit my schedule. Great platform!"</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Raj Patel</span>
+                        <span class="author-role">Freelance Painter</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"As an employer, posting work is simple and I get quality candidates quickly."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Priya Sharma</span>
+                        <span class="author-role">Business Owner</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The app made it easy to apply for driving car in my city. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Amit Kumar</span>
+                        <span class="author-role">Driver</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.jpg" alt="WorkZone Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">WorkZone</span>
+                    </div>
+                    <p class="footer-description">Connecting workers with opportunities. Find, apply, and succeed.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">💼</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>work Seekers</h4>
+                    <ul>
+                        <li><a href="#">Browse works</a></li>
+                        <li><a href="#">Create Profile</a></li>
+                        <li><a href="#">work Alerts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Employers</h4>
+                    <ul>
+                        <li><a href="#">Post a work</a></li>
+                        <li><a href="#">Find Talent</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WorkZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h2>Sign In</h2>
+            <form class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+            <p class="auth-link">Don't have an account? <a href="#" onclick="showRegister()">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegister()">&times;</span>
+            <h2>Create Account</h2>
+            <form class="auth-form">
+                <div class="form-group">
+                    <label for="regName">Full Name</label>
+                    <input type="text" id="regName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+            <p class="auth-link">Already have an account? <a href="#" onclick="showLogin()">Sign in</a></p>
+        </div>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        function closeLogin() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        function showRegister() {
+            document.getElementById('registerModal').style.display = 'block';
+        }
+
+        function closeRegister() {
+            document.getElementById('registerModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const loginModal = document.getElementById('loginModal');
+            const registerModal = document.getElementById('registerModal');
+            if (event.target == loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (event.target == registerModal) {
+                registerModal.style.display = 'none';
+            }
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.job-card');
+            let hasResults = false;
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (query === '' || text.includes(query)) {
+                    card.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            const noResults = document.getElementById('noResults');
+            const jobsContainer = document.getElementById('jobsContainer');
+            if (hasResults) {
+                noResults.style.display = 'none';
+                jobsContainer.style.display = 'block';
+            } else {
+                noResults.style.display = 'block';
+                jobsContainer.style.display = 'block';
+            }
+            jobsContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
