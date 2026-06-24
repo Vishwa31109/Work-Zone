@@ -10,14 +10,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
+                <a href="#" class="logo">
                     <img src="logo.jpg" alt="WorkZone Logo" class="logo-img">
                     <span class="logo-text">WorkZone</span>
-                </div>
+                </a>
+                <nav class="header-nav">
+                    <a href="#jobs">Explore Jobs</a>
+                    <a href="#features">Why WorkZone</a>
+                    <a href="#stories">Success Stories</a>
+                </nav>
                 <div class="auth-buttons">
                     <button class="btn btn-secondary" onclick="showLogin()">Sign in</button>
                     <button class="btn btn-primary" onclick="showRegister()">Post employer</button>
@@ -26,16 +30,38 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="container hero-grid">
             <div class="hero-content">
-                <h1 class="hero-title">Find Your Perfect Work Opportunity</h1>
-                <p class="hero-description">Discover flexible work, connect with verified employers and  Start your journey today.</p>
+                <span class="eyebrow">Trusted by 500+ local employers</span>
+                <h1 class="hero-title">Find flexible work that matches your life.</h1>
+                <p class="hero-description">Browse verified gigs, discover exciting opportunities and apply in minutes with a polished, modern experience.</p>
+
                 <div class="hero-search">
-                    <input type="text" placeholder="Search for Works, cities..." class="search-input" id="searchInput">
-                    <button class="btn btn-primary search-btn" onclick="performSearch()">Search Works</button>
+                    <input type="text" placeholder="Search jobs, cities or skills" class="search-input" id="searchInput">
+                    <select class="search-select" id="categoryFilter">
+                        <option value="all">All categories</option>
+                        <option value="creative">Creative</option>
+                        <option value="delivery">Delivery</option>
+                        <option value="service">Service</option>
+                        <option value="care">Care</option>
+                    </select>
+                    <select class="search-select" id="locationFilter">
+                        <option value="all">Any location</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="bangalore">Bangalore</option>
+                        <option value="remote">Remote</option>
+                    </select>
+                    <button class="btn btn-primary search-btn" onclick="performSearch()">Search</button>
                 </div>
+
+                <div class="quick-tags">
+                    <span>⚡ Instant matching</span>
+                    <span>✅ Verified employers</span>
+                    <span>💸 Fast payouts</span>
+                </div>
+
                 <div class="hero-stats">
                     <div class="stat">
                         <span class="stat-number">10K+</span>
@@ -51,120 +77,255 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Jobs Section -->
-    <section class="jobs-section" id="jobsContainer" style="display: none;">
-        <div class="container">
-            <h2 class="section-title">Available Jobs</h2>
-            <div class="jobs-grid">
-                <div class="job-card">
-                    <h3>Freelance Painter</h3>
-                    <p class="job-location">Mumbai, India</p>
-                    <p class="job-description">Looking for experienced painters for residential and commercial projects. Flexible hours, good pay.</p>
+            <div class="hero-panel">
+                <div class="panel-card highlight">
+                    <p class="panel-label">Featured today</p>
+                    <h3>Remote Graphic Design</h3>
+                    <p>Perfect for creators who love flexible deadlines and premium clients.</p>
+                    <button class="btn btn-primary">Apply now</button>
                 </div>
-                <div class="job-card">
-                    <h3>Delivery Driver</h3>
-                    <p class="job-location">Delhi, India</p>
-                    <p class="job-description">Part-time delivery gigs available. Use your own vehicle, flexible schedule, competitive rates.</p>
-                </div>
-                <div class="job-card">
-                    <h3>House Cleaner</h3>
-                    <p class="job-location">Bangalore, India</p>
-                    <p class="job-description">Clean homes and offices. No experience needed, training provided. Full-time and part-time options.</p>
-                </div>
-                <div class="job-card">
-                    <h3>Event Staff</h3>
-                    <p class="job-location">Pune, India</p>
-                    <p class="job-description">Help with event setup and management. Great for students, evening and weekend shifts.</p>
-                </div>
-                <div class="job-card">
-                    <h3>Gardener</h3>
-                    <p class="job-location">Chennai, India</p>
-                    <p class="job-description">Maintain gardens and landscapes. Seasonal work, outdoor environment, tools provided.</p>
-                </div>
-                <div class="job-card">
-                    <h3>Pet Sitter</h3>
-                    <p class="job-location">Hyderabad, India</p>
-                    <p class="job-description">Care for pets while owners are away. Flexible hours, love for animals required.</p>
-                </div>
-                <div class="job-card">
-                    <h3>Waiter/Waitress</h3>
-                    <p class="job-location">Kolkata, India</p>
-                    <p class="job-description">Restaurant serving positions. Tips included, fast-paced environment, customer service skills.</p>
-                </div>
-                <div class="job-card">
-                    <h3>Graphic Designer</h3>
-                    <p class="job-location">Remote</p>
-                    <p class="job-description">Create visual content for clients. Freelance opportunities, portfolio required.</p>
+                <div class="panel-card">
+                    <p class="panel-label">New this week</p>
+                    <h3>120+ fresh openings</h3>
+                    <p>From local gigs to remote contracts, there is always something new.</p>
                 </div>
             </div>
-            <p id="noResults" class="no-results" style="display: none;">No jobs found matching your search.</p>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <section class="trust-strip">
+        <div class="container trust-row">
+            <span>🏆 4.9/5 average worker rating</span>
+            <span>📈 2x faster hiring</span>
+            <span>🧠 Smart recommendations</span>
+        </div>
+    </section>
+
+    <section class="jobs-section" id="jobs">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <span class="eyebrow">Popular opportunities</span>
+                    <h2 class="section-title">Discover work that fits your style</h2>
+                </div>
+                <a href="#features" class="section-link">See why people love it</a>
+            </div>
+
+            <div class="filter-chips">
+                <button class="chip active" data-filter="all">All</button>
+                <button class="chip" data-filter="creative">Creative</button>
+                <button class="chip" data-filter="delivery">Delivery</button>
+                <button class="chip" data-filter="service">Service</button>
+                <button class="chip" data-filter="care">Care</button>
+            </div>
+
+            <div class="jobs-grid" id="jobsGrid">
+                <article class="job-card" data-category="creative" data-location="mumbai" data-type="freelance">
+                    <div class="job-top">
+                        <span class="job-badge featured">Featured</span>
+                        <span class="job-badge">Remote</span>
+                    </div>
+                    <h3>Freelance Painter</h3>
+                    <p class="job-location">Mumbai, India</p>
+                    <p class="job-description">Creative residential and commercial painting projects with flexible hours and premium pay.</p>
+                    <div class="job-meta">
+                        <span>₹1,500/day</span>
+                        <span>Flexible</span>
+                    </div>
+                    <button class="btn btn-secondary small">Apply now</button>
+                </article>
+
+                <article class="job-card" data-category="delivery" data-location="delhi" data-type="part-time">
+                    <div class="job-top">
+                        <span class="job-badge urgent">Urgent</span>
+                        <span class="job-badge">Vehicle</span>
+                    </div>
+                    <h3>Delivery Driver</h3>
+                    <p class="job-location">Delhi, India</p>
+                    <p class="job-description">Reliable part-time delivery gigs, excellent rates and quick onboarding for busy schedules.</p>
+                    <div class="job-meta">
+                        <span>₹18,000/mo</span>
+                        <span>Part-time</span>
+                    </div>
+                    <button class="btn btn-secondary small">Apply now</button>
+                </article>
+
+                <article class="job-card" data-category="service" data-location="bangalore" data-type="full-time">
+                    <div class="job-top">
+                        <span class="job-badge">Training</span>
+                        <span class="job-badge">Full-time</span>
+                    </div>
+                    <h3>House Cleaner</h3>
+                    <p class="job-location">Bangalore, India</p>
+                    <p class="job-description">Help maintain homes and offices with supportive teams, flexible shift options and steady work.</p>
+                    <div class="job-meta">
+                        <span>₹22,000/mo</span>
+                        <span>Full-time</span>
+                    </div>
+                    <button class="btn btn-secondary small">Apply now</button>
+                </article>
+
+                <article class="job-card" data-category="service" data-location="pune" data-type="weekend">
+                    <div class="job-top">
+                        <span class="job-badge">Weekend</span>
+                        <span class="job-badge">Event</span>
+                    </div>
+                    <h3>Event Staff</h3>
+                    <p class="job-location">Pune, India</p>
+                    <p class="job-description">Perfect for students and energetic professionals who love fast-paced event environments.</p>
+                    <div class="job-meta">
+                        <span>₹800/event</span>
+                        <span>Weekend</span>
+                    </div>
+                    <button class="btn btn-secondary small">Apply now</button>
+                </article>
+
+                <article class="job-card" data-category="care" data-location="chennai" data-type="seasonal">
+                    <div class="job-top">
+                        <span class="job-badge">Outdoor</span>
+                        <span class="job-badge">Seasonal</span>
+                    </div>
+                    <h3>Gardener</h3>
+                    <p class="job-location">Chennai, India</p>
+                    <p class="job-description">Seasonal outdoor work with tools provided and positive, team-first surroundings.</p>
+                    <div class="job-meta">
+                        <span>₹1,200/day</span>
+                        <span>Seasonal</span>
+                    </div>
+                    <button class="btn btn-secondary small">Apply now</button>
+                </article>
+
+                <article class="job-card" data-category="care" data-location="hyderabad" data-type="flexible">
+                    <div class="job-top">
+                        <span class="job-badge">Flexible</span>
+                        <span class="job-badge">Pet care</span>
+                    </div>
+                    <h3>Pet Sitter</h3>
+                    <p class="job-location">Hyderabad, India</p>
+                    <p class="job-description">Care for pets while owners are away with flexible schedules and a friendly community.</p>
+                    <div class="job-meta">
+                        <span>₹400/visit</span>
+                        <span>Flexible</span>
+                    </div>
+                    <button class="btn btn-secondary small">Apply now</button>
+                </article>
+
+                <article class="job-card" data-category="service" data-location="kolkata" data-type="full-time">
+                    <div class="job-top">
+                        <span class="job-badge">Tips</span>
+                        <span class="job-badge">Fast-paced</span>
+                    </div>
+                    <h3>Waiter/Waitress</h3>
+                    <p class="job-location">Kolkata, India</p>
+                    <p class="job-description">Join restaurants that value service, teamwork and guest experience with growth opportunities.</p>
+                    <div class="job-meta">
+                        <span>₹20,000/mo</span>
+                        <span>Full-time</span>
+                    </div>
+                    <button class="btn btn-secondary small">Apply now</button>
+                </article>
+
+                <article class="job-card" data-category="creative" data-location="remote" data-type="freelance">
+                    <div class="job-top">
+                        <span class="job-badge featured">Top pick</span>
+                        <span class="job-badge">Remote</span>
+                    </div>
+                    <h3>Graphic Designer</h3>
+                    <p class="job-location">Remote</p>
+                    <p class="job-description">Create eye-catching visuals for clients with flexible freelance projects and strong earning potential.</p>
+                    <div class="job-meta">
+                        <span>₹2,000/project</span>
+                        <span>Freelance</span>
+                    </div>
+                    <button class="btn btn-secondary small">Apply now</button>
+                </article>
+            </div>
+
+            <p id="noResults" class="no-results">No jobs found matching your filters yet.</p>
+        </div>
+    </section>
+
+    <section class="features" id="features">
         <div class="container">
             <h2 class="section-title">Why Choose WorkZone?</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🔍</div>
-                    <h3>Easy Work Search</h3>
-                    <p>Find relevant opportunities with advanced filters for location, type, and schedule.</p>
+                    <h3>Smart discovery</h3>
+                    <p>Use filters and smart search to discover relevant opportunities in seconds.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🛡️</div>
-                    <h3>Verified Employers</h3>
-                    <p>Work with trusted people and get paid securely for every work.</p>
+                    <h3>Verified employers</h3>
+                    <p>Work with trusted people and keep every interaction secure and professional.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⏰</div>
-                    <h3>Flexible Schedules</h3>
-                    <p>Choose from short-term gigs to full-time roles that fit your lifestyle.</p>
+                    <h3>Flexible schedules</h3>
+                    <p>Choose from short-term gigs, weekend roles or long-term career growth.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📱</div>
-                    <h3>Mobile Friendly</h3>
-                    <p>Access works, apply, and manage your profile anytime, anywhere.</p>
-                    <br>
+                    <h3>Designed for mobile</h3>
+                    <p>Access everything on the go with a clean, responsive interface.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">How it works</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <span>1</span>
+                    <h3>Search</h3>
+                    <p>Find roles by skill, city or category in just a few clicks.</p>
+                </div>
+                <div class="process-card">
+                    <span>2</span>
+                    <h3>Apply</h3>
+                    <p>Use a simple profile and apply instantly to the jobs you love.</p>
+                </div>
+                <div class="process-card">
+                    <span>3</span>
+                    <h3>Get hired</h3>
+                    <p>Connect with employers and start earning confidently.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="stories">
         <div class="container">
             <h2 class="section-title">What Our Users Say</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p>"WorkZone helped me find flexible painting work that fit my schedule. Great platform!"</p>
+                    <p>“WorkZone helped me find flexible painting work that fit my schedule perfectly.”</p>
                     <div class="testimonial-author">
                         <span class="author-name">Raj Patel</span>
                         <span class="author-role">Freelance Painter</span>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p>"As an employer, posting work is simple and I get quality candidates quickly."</p>
+                    <p>“As an employer, posting jobs is simple and I receive quality candidates fast.”</p>
                     <div class="testimonial-author">
                         <span class="author-name">Priya Sharma</span>
                         <span class="author-role">Business Owner</span>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p>"The app made it easy to apply for driving car in my city. Highly recommend!"</p>
+                    <p>“The interface is smooth, modern and made applying for work incredibly easy.”</p>
                     <div class="testimonial-author">
                         <span class="author-name">Amit Kumar</span>
-                        <span class="author-role">Driver</span>
+                        <span class="author-role">Delivery Driver</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -173,7 +334,7 @@
                         <img src="logo.jpg" alt="WorkZone Logo" class="footer-logo-img">
                         <span class="footer-logo-text">WorkZone</span>
                     </div>
-                    <p class="footer-description">Connecting workers with opportunities. Find, apply, and succeed.</p>
+                    <p class="footer-description">Connecting workers with opportunities. Find, apply and succeed.</p>
                     <div class="social-links">
                         <a href="#" class="social-link">📘</a>
                         <a href="#" class="social-link">🐦</a>
@@ -181,27 +342,27 @@
                     </div>
                 </div>
                 <div class="footer-section">
-                    <h4>work Seekers</h4>
+                    <h4>Job seekers</h4>
                     <ul>
-                        <li><a href="#">Browse works</a></li>
-                        <li><a href="#">Create Profile</a></li>
-                        <li><a href="#">work Alerts</a></li>
+                        <li><a href="#">Browse jobs</a></li>
+                        <li><a href="#">Create profile</a></li>
+                        <li><a href="#">Job alerts</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Employers</h4>
                     <ul>
-                        <li><a href="#">Post a work</a></li>
-                        <li><a href="#">Find Talent</a></li>
+                        <li><a href="#">Post a job</a></li>
+                        <li><a href="#">Find talent</a></li>
                         <li><a href="#">Pricing</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Support</h4>
                     <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Privacy policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -211,7 +372,6 @@
         </div>
     </footer>
 
-    <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeLogin()">&times;</span>
@@ -231,7 +391,6 @@
         </div>
     </div>
 
-    <!-- Register Modal -->
     <div id="registerModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeRegister()">&times;</span>
@@ -257,7 +416,7 @@
 
     <script>
         function showLogin() {
-            document.getElementById('loginModal').style.display = 'block';
+            document.getElementById('loginModal').style.display = 'flex';
         }
 
         function closeLogin() {
@@ -265,7 +424,7 @@
         }
 
         function showRegister() {
-            document.getElementById('registerModal').style.display = 'block';
+            document.getElementById('registerModal').style.display = 'flex';
         }
 
         function closeRegister() {
@@ -275,38 +434,60 @@
         window.onclick = function(event) {
             const loginModal = document.getElementById('loginModal');
             const registerModal = document.getElementById('registerModal');
-            if (event.target == loginModal) {
+            if (event.target === loginModal) {
                 loginModal.style.display = 'none';
             }
-            if (event.target == registerModal) {
+            if (event.target === registerModal) {
                 registerModal.style.display = 'none';
             }
         }
 
         function performSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const category = document.getElementById('categoryFilter').value;
+            const location = document.getElementById('locationFilter').value;
             const cards = document.querySelectorAll('.job-card');
             let hasResults = false;
+
             cards.forEach(card => {
                 const text = card.textContent.toLowerCase();
-                if (query === '' || text.includes(query)) {
-                    card.style.display = 'block';
+                const cardCategory = card.getAttribute('data-category');
+                const cardLocation = card.getAttribute('data-location');
+                const matchesQuery = query === '' || text.includes(query);
+                const matchesCategory = category === 'all' || cardCategory === category;
+                const matchesLocation = location === 'all' || cardLocation === location;
+
+                const shouldShow = matchesQuery && matchesCategory && matchesLocation;
+                card.style.display = shouldShow ? 'block' : 'none';
+                if (shouldShow) {
                     hasResults = true;
-                } else {
-                    card.style.display = 'none';
                 }
             });
+
             const noResults = document.getElementById('noResults');
-            const jobsContainer = document.getElementById('jobsContainer');
-            if (hasResults) {
-                noResults.style.display = 'none';
-                jobsContainer.style.display = 'block';
-            } else {
-                noResults.style.display = 'block';
-                jobsContainer.style.display = 'block';
-            }
-            jobsContainer.scrollIntoView({ behavior: 'smooth' });
+            noResults.style.display = hasResults ? 'none' : 'block';
+            document.getElementById('jobs').scrollIntoView({ behavior: 'smooth' });
         }
+
+        document.querySelectorAll('.chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.querySelectorAll('.chip').forEach(item => item.classList.remove('active'));
+                chip.classList.add('active');
+                const filter = chip.getAttribute('data-filter');
+                document.getElementById('categoryFilter').value = filter;
+                performSearch();
+            });
+        });
+
+        document.getElementById('searchInput').addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        document.getElementById('categoryFilter').addEventListener('change', performSearch);
+        document.getElementById('locationFilter').addEventListener('change', performSearch);
+        performSearch();
     </script>
 </body>
 </html>
